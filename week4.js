@@ -114,8 +114,6 @@ var additionProblems = function(){
 
 
 
-
-
 var namePlayer = function(){
 	console.log("Welcome to Pretty Penguin Pamper Programs!\nThe Place to Polish your Penguin!\n");
 	playerName = sget("Please enter your name, Player: ").trim();
