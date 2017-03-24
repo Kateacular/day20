@@ -26,8 +26,12 @@
 var sget = require("sget");
 
 var playerName;
+var penguinCalled;
 var playerPenguin = [];
 
+var simpleAddition = ["1+34=","2+5"];
+
+var penguinPebbles = [];
 
 var exit = function(){
 	console.log("See you next time, Space Cowboy.");
@@ -44,6 +48,7 @@ var penguinData = function(name,gender,type){
 
 var createPenguin = function(){
 	var penguinName = sget("What is the name of your penguin, "+playerName+"? ").trim();
+	penguinCalled = penguinName
 	var penguinGender;
 	var penguinType;
 	var genderAnswer = sget("What gender is your penguin?\n Select 1 for Female, 2 for Male.").trim();
@@ -75,14 +80,37 @@ var createPenguin = function(){
 
 var modifyPenguin = function(){
 
-	console.log("make stuff happen here, Kate");
-	var option = sget("Select 1 to action.\nSelect 4 to exit").trim();
-	if (option == 4) {
+	console.log("Okay, "+playerName+": Time to use your brains to level up "+penguinCalled+"! ");
+	var option = sget("Select 1 for addition problems.\nSelect 4 to exit").trim();
+	if (option == 1){
+		additionProblems();
+	}
+	else if (option == 4) {
 	exit();
-}
+	}
+	else{
+		console.log("Just the two options. \nThis is a new company, "+playerName+". \nTry again.");
+		modifyPenguin();
+	}
 };
 
-
+var additionProblems = function(){
+	var problem = simpleAddition[Math.floor(Math.random() * simpleAddition.length)];
+	console.log(problem);
+	var answer = sget("What's the answer?").trim();
+		if (problem == simpleAddition[0] && answer == "35"){
+			console.log("Nice job! "+penguinCalled+" gets 5 PenguinPebbles!");
+			modifyPenguin();
+		}
+		else if (problem == simpleAddition[1] && answer == "7"){
+			console.log("Nice job! "+penguinCalled+" gets 5 PenguinPebbles!");
+			modifyPenguin();
+		}
+		else {
+			console.log("That seems wrong. Could be me. Let's go back to the menu.\nMaybe time to quit.");
+			modifyPenguin();
+		}
+};
 
 
 
