@@ -25,3 +25,53 @@
 
 var sget = require("sget");
 
+var playerName;
+var playerPenguin = [];
+
+
+var exit = function(){
+	console.log("See you next time, Space Cowboy.");
+	process.exit();
+};
+
+
+var penguinData = function(name,gender,type){
+	this.name = name;
+	this.gender = gender;
+	this.type = type;
+};
+
+
+var createPenguin = function(){
+	var penguinName = sget("What is the name of your penguin?").trim();
+	var penguinGender;
+	var penguinType;
+	var genderAnswer = sget("What gender is your penguin?\n Select 1 for Female, 2 for Male.").trim();
+		if (genderAnswer == 1){
+			penguinGender = "Female";
+		}else if (genderAnswer == 2){
+			penguinGender = "Male";
+		}
+		else {
+			console.log("I get it. It's hard to tell. Penguins.\nTry again.");
+			createPenguin();
+		}
+	var typeAnswer = sget("What type of pengin have you adopted, "+playerName+"?\nSelect 1 for Rockhopper\nSelect 2 for Gentoo\nSelect 3 for Emperor.").trim();
+		if (typeAnswer == 1){
+			penguinType = "Rockhopper";
+		}else if (typeAnswer == 2){
+			penguinGender = "Gentoo";
+		}else if (typeAnswer == 3){
+			penguinGender = "Emperor";
+		} else {
+			console.log("Just those 3. Start over, Fancy Pants.");
+			createPenguin();
+		}
+
+	var newPenguin = new  penguinData(penguinName,penguinGender,penguinType);
+	playerPenguin.push(newPenguin);
+
+};
+
+
+
