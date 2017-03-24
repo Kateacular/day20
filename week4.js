@@ -43,7 +43,7 @@ var penguinData = function(name,gender,type){
 
 
 var createPenguin = function(){
-	var penguinName = sget("What is the name of your penguin?").trim();
+	var penguinName = sget("What is the name of your penguin, "+playerName+"? ").trim();
 	var penguinGender;
 	var penguinType;
 	var genderAnswer = sget("What gender is your penguin?\n Select 1 for Female, 2 for Male.").trim();
@@ -60,9 +60,9 @@ var createPenguin = function(){
 		if (typeAnswer == 1){
 			penguinType = "Rockhopper";
 		}else if (typeAnswer == 2){
-			penguinGender = "Gentoo";
+			penguinType = "Gentoo";
 		}else if (typeAnswer == 3){
-			penguinGender = "Emperor";
+			penguinType = "Emperor";
 		} else {
 			console.log("Just those 3. Start over, Fancy Pants.");
 			createPenguin();
@@ -73,5 +73,35 @@ var createPenguin = function(){
 
 };
 
+var modifyPenguin = function(){
+
+	console.log("make stuff happen here, Kate");
+	var option = sget("Select 1 to action.\nSelect 4 to exit").trim();
+	if (option == 4) {
+	exit();
+}
+};
 
 
+
+
+
+
+
+var namePlayer = function(){
+	console.log("Welcome to Pretty Penguin Pamper Programs!\nThe Place to Polish your Penguin!\n");
+	playerName = sget("Please enter your name, Player: ").trim();
+	console.log("Nice to meet you, "+playerName+"!");
+};
+
+
+
+var run = function(){
+	namePlayer();
+	createPenguin();
+	console.log(playerPenguin);
+	modifyPenguin();
+
+};
+
+run();
