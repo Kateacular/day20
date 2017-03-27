@@ -74,6 +74,7 @@ var createPenguin = function(){
 		}
 		else {
 			console.log("I get it. It's hard to tell. Penguins.\nTry again.");
+			penguinGender = "";
 			createPenguin();
 		}
 	var typeAnswer = sget("What type of pengin have you adopted, "+playerName+"?\nSelect 1 for Rockhopper\nSelect 2 for Gentoo\nSelect 3 for Emperor.").trim();
@@ -85,6 +86,7 @@ var createPenguin = function(){
 			penguinType = "Emperor";
 		} else {
 			console.log("Just those 3. Start over, Fancy Pants.");
+			penguinType =";"
 			createPenguin();
 		}
 	var newPenguin = new  penguinData(penguinName,penguinGender,penguinType);
